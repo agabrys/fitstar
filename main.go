@@ -15,9 +15,10 @@ func main() {
 }
 
 func step1() {
-	body, _ := fetchPage(`https://fit-star.easy2book.de/`)
+	body, cookies := fetchPage(`https://fit-star.easy2book.de/`)
+	log.Println(cookies)
 	log.Println(findFormToken(body))
-	log.Print(findTrainings(`FIT STAR München-Neuhausen`, body))
+	log.Println(findTrainings(`FIT STAR München-Neuhausen`, body))
 }
 
 func fetchPage(url string) (string, []*http.Cookie) {
